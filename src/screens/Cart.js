@@ -10,18 +10,11 @@ export default function Cart() {
         <div className='m-5 w-100 text-center fs-3'>The Cart is Empty!</div>
       </div>
     )
-  }
-  // const handleRemove = (index)=>{
-  //   console.log(index)
-  //   dispatch({type:"REMOVE",index:index})
-  // }
+  } 
 
   const handleCheckOut = async () => {
-    let userEmail = localStorage.getItem("userEmail");
-    // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("http://localhost:5000/api/auth/orderData", {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
+    let userEmail = localStorage.getItem("userEmail"); 
+    let response = await fetch("http://localhost:5000/api/auth/orderData", { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

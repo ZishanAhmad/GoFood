@@ -37,9 +37,7 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/auth/createuser", {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
+    const response = await fetch("http://localhost:5000/api/auth/createuser", { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -49,8 +47,7 @@ export default function Signup() {
     });
     const json = await response.json()
     console.log(json);
-    if (json.success) {
-      //save the auth toke to local storage and redirect
+    if (json.success) { 
       localStorage.setItem('token', json.authToken)
       navigate("/login")
 

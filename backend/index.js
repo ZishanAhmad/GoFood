@@ -1,10 +1,7 @@
-global.foodData = require('./db')(function call(err, data, CatData) {
-  // console.log(data)
+global.foodData = require('./db')(function call(err, data, CatData) { 
   if(err) console.log(err);
   global.foodData = data;
-  global.foodCategory = CatData;
-  // console.log(global.foodData);
-  // console.log(global.foodCategory);
+  global.foodCategory = CatData; 
 })
 
 const express = require('express')

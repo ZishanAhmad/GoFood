@@ -1,20 +1,14 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatchCart, useCart } from './ContextReducer'
-// import { Dropdown, DropdownButton } from 'react-bootstrap';
+import { useDispatchCart, useCart } from './ContextReducer' 
 export default function Card(props) {
   let data = useCart();
 
   let navigate = useNavigate()
   const [qty, setQty] = useState(1)
   const [size, setSize] = useState("")
-  const priceRef = useRef();
-  // const [btnEnable, setBtnEnable] = useState(false);
-  // let totval = 0
-  // let price = Object.values(options).map((value) => {
-  //   return parseInt(value, 10);
-  // });
+  const priceRef = useRef(); 
   let options = props.options;
   let priceOptions = Object.keys(options);
   let foodItem = props.item;
@@ -56,22 +50,13 @@ export default function Card(props) {
 
     await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size })
 
-
-    // setBtnEnable(true)
-
   }
 
   useEffect(() => {
     setSize(priceRef.current.value)
-  }, [])
+  }, []) 
 
-  // useEffect(()=>{
-  // checkBtn();
-  //   },[data])
-
-  let finalPrice = qty * parseInt(options[size]);   //This is where Price is changing
-  // totval += finalPrice;
-  // console.log(totval)
+  let finalPrice = qty * parseInt(options[size]);   
   return (
     <div>
 
